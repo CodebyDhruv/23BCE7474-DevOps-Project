@@ -1,0 +1,126 @@
+pipeline {
+
+    agent any
+
+    tools {
+        jdk 'JDK17'
+        maven 'Maven-3.9.16'
+    }
+
+    environment {
+        IMAGE_NAME = "novanexus-techfest"
+        IMAGE_TAG = "v1"
+    }
+
+    stages {
+
+        stage('Checkout Source Code') {
+            steps {
+                echo "Checking out source code from GitHub..."
+
+                git branch: 'main',
+                    url: 'https://github.com/CodebyDhruv/23BCE7474-DevOps-Project.git'
+            }
+        }
+
+        stage('Verify Tools') {
+            steps {
+                echo "Verifying Java..."
+                sh 'java -version'
+
+                echo "Verifying Maven..."
+                sh 'mvn -version'
+
+                echo "Verifying Docker..."
+                sh 'docker --version'
+
+                echo "Verifying Kubernetes..."
+                sh 'kubectl version --client'
+            }
+        }
+
+        stage('Clean Project') {
+            steps {
+                echo "Cleaning project..."
+                sh 'mvn clean'
+            }
+        }
+
+        stage('Compile Project') {
+            steps {
+                echo "Compiling project..."
+                sh 'mvn compile'
+            }
+        }
+
+        stage('Run Unit Tests') {
+            steps {
+                echo "Running unit tests..."
+                sh 'mvn test'
+            }
+        }
+
+        stage('Package Application') {
+            steps {
+                echo "Packaging Spring Boot application..."
+                sh 'mvn clean package'
+            }
+        }
+
+        stage('Build Docker Image') {
+            steps {
+                echo "Building Docker image..."
+                sh 'docker build -t ${IMAGE_NAME}:${IMAGE_TAG} .'
+            }
+        }
+
+        stage('List Docker Images') {
+            steps {
+                echo "Available Docker Images"
+                sh 'docker images'
+            }
+        }
+
+        stage('Deploy to Kubernetes') {
+            steps {
+                echo "Deploying application to Kubernetes..."
+
+                sh 'kubectl apply -f k8s/deployment.yaml'
+                sh 'kubectl apply -f k8s/service.yaml'
+            }
+        }
+
+        stage('Verify Deployment') {
+            steps {
+                echo "Checking Deployment..."
+
+                sh 'kubectl rollout status deployment/novanexus-techfest'
+                sh 'kubectl get deployments'
+                sh 'kubectl get pods'
+                sh 'kubectl get svc'
+            }
+        }
+
+    }
+
+    post {
+
+        always {
+            echo "Pipeline Finished."
+        }
+
+        success {
+            echo "======================================="
+            echo "BUILD SUCCESSFUL"
+            echo "NovaNexus TechFest deployed successfully."
+            echo "======================================="
+        }
+
+        failure {
+            echo "======================================="
+            echo "BUILD FAILED"
+            echo "Check Jenkins Console Output"
+            echo "======================================="
+        }
+    }
+}
