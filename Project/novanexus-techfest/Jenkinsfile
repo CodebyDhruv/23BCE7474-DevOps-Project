@@ -8,9 +8,10 @@ pipeline {
     }
 
     environment {
-        IMAGE_NAME = "novanexus-techfest"
-        IMAGE_TAG = "v1"
-    }
+    PROJECT_DIR = "Project/novanexus-techfest"
+    IMAGE_NAME = "novanexus-techfest"
+    IMAGE_TAG = "v1"
+}
 
     stages {
 
@@ -40,39 +41,44 @@ pipeline {
         }
 
         stage('Clean Project') {
-            steps {
-                echo "Cleaning project..."
-                sh 'mvn clean'
-            }
+    steps {
+        dir(env.PROJECT_DIR) {
+            sh 'mvn clean'
         }
+    }
+}
 
         stage('Compile Project') {
-            steps {
-                echo "Compiling project..."
-                sh 'mvn compile'
-            }
+    steps {
+        dir(env.PROJECT_DIR) {
+            sh 'mvn compile'
         }
+    }
+}
 
         stage('Run Unit Tests') {
-            steps {
-                echo "Running unit tests..."
-                sh 'mvn test'
-            }
+    steps {
+        dir(env.PROJECT_DIR) {
+            sh 'mvn test'
         }
+    }
+}
 
         stage('Package Application') {
-            steps {
-                echo "Packaging Spring Boot application..."
-                sh 'mvn clean package'
-            }
+    steps {
+        dir(env.PROJECT_DIR) {
+            sh 'mvn package'
         }
+    }
+}
 
         stage('Build Docker Image') {
-            steps {
-                echo "Building Docker image..."
-                sh 'docker build -t ${IMAGE_NAME}:${IMAGE_TAG} .'
-            }
+    steps {
+        dir(env.PROJECT_DIR) {
+            sh 'docker build -t ${IMAGE_NAME}:${IMAGE_TAG} .'
         }
+    }
+}
 
         stage('List Docker Images') {
             steps {
@@ -82,13 +88,13 @@ pipeline {
         }
 
         stage('Deploy to Kubernetes') {
-            steps {
-                echo "Deploying application to Kubernetes..."
-
-                sh 'kubectl apply -f k8s/deployment.yaml'
-                sh 'kubectl apply -f k8s/service.yaml'
-            }
+    steps {
+        dir(env.PROJECT_DIR) {
+            sh 'kubectl apply -f k8s/deployment.yaml'
+            sh 'kubectl apply -f k8s/service.yaml'
         }
+    }
+}
 
         stage('Verify Deployment') {
             steps {
