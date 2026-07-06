@@ -1,0 +1,379 @@
+Started by user admin
+Running as SYSTEM
+Building in workspace /var/lib/jenkins/workspace/NovaNexus-TechFest-CICD
+Selected Git installation does not exist. Using Default
+The recommended git tool is: NONE
+No credentials specified
+ > git rev-parse --resolve-git-dir /var/lib/jenkins/workspace/NovaNexus-TechFest-CICD/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/CodebyDhruv/23BCE7474-DevOps-Project # timeout=10
+Fetching upstream changes from https://github.com/CodebyDhruv/23BCE7474-DevOps-Project
+ > git --version # timeout=10
+ > git --version # 'git version 2.53.0'
+ > git fetch --tags --force --progress -- https://github.com/CodebyDhruv/23BCE7474-DevOps-Project +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/main^{commit} # timeout=10
+Checking out Revision f4b6ae36b623a2ee00d90d5a7ddf307dfc8deeb0 (refs/remotes/origin/main)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f f4b6ae36b623a2ee00d90d5a7ddf307dfc8deeb0 # timeout=10
+Commit message: "Updated jenkins file 2"
+ > git rev-list --no-walk f4b6ae36b623a2ee00d90d5a7ddf307dfc8deeb0 # timeout=10
+[NovaNexus-TechFest-CICD] $ /bin/sh -xe /tmp/jenkins8285129717602509883.sh
++ set -e
++ cd Project/novanexus-techfest
++ java -version
+openjdk version "17.0.18" 2026-01-20
+OpenJDK Runtime Environment (build 17.0.18+8)
+OpenJDK 64-Bit Server VM (build 17.0.18+8, mixed mode, sharing)
++ mvn -version
+Apache Maven 3.9.16 (2bdd9fddda4b155ebf8000e807eb73fd829a51d5)
+Maven home: /usr/share/java/maven
+Java version: 17.0.18, vendor: Arch Linux, runtime: /usr/lib/jvm/java-17-openjdk
+Default locale: en_US, platform encoding: UTF-8
+OS name: "linux", version: "6.19.11-arch1-1", arch: "amd64", family: "unix"
++ docker --version
+Docker version 29.6.1, build 8900f1d
++ mvn clean
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------< com.novanexus:novanexus-techfest >------------------
+[INFO] Building novanexus-techfest 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.5.0:clean (default-clean) @ novanexus-techfest ---
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  0.797 s
+[INFO] Finished at: 2026-07-06T16:58:07+05:30
+[INFO] ------------------------------------------------------------------------
++ mvn compile
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------< com.novanexus:novanexus-techfest >------------------
+[INFO] Building novanexus-techfest 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.5.0:resources (default-resources) @ novanexus-techfest ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] Copying 3 resources from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.15.0:compile (default-compile) @ novanexus-techfest ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 2 source files with javac [debug parameters release 17] to target/classes
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  2.984 s
+[INFO] Finished at: 2026-07-06T16:58:12+05:30
+[INFO] ------------------------------------------------------------------------
++ mvn test
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------< com.novanexus:novanexus-techfest >------------------
+[INFO] Building novanexus-techfest 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.5.0:resources (default-resources) @ novanexus-techfest ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] Copying 3 resources from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.15.0:compile (default-compile) @ novanexus-techfest ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.5.0:testResources (default-testResources) @ novanexus-techfest ---
+[INFO] skip non existing resourceDirectory /var/lib/jenkins/workspace/NovaNexus-TechFest-CICD/Project/novanexus-techfest/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.15.0:testCompile (default-testCompile) @ novanexus-techfest ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 1 source file with javac [debug parameters release 17] to target/test-classes
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ novanexus-techfest ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.novanexus.novanexus_techfest.NovanexusTechfestApplicationTests
+16:58:18.774 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.novanexus.novanexus_techfest.NovanexusTechfestApplicationTests]: NovanexusTechfestApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+16:58:18.912 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.novanexus.NovanexusTechfestApplication for test class com.novanexus.novanexus_techfest.NovanexusTechfestApplicationTests
+16:58:19.041 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.novanexus.novanexus_techfest.NovanexusTechfestApplicationTests]: NovanexusTechfestApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+16:58:19.044 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.novanexus.NovanexusTechfestApplication for test class com.novanexus.novanexus_techfest.NovanexusTechfestApplicationTests
+16:58:19.193 [main] INFO org.springframework.boot.devtools.restart.RestartApplicationListener -- Restart disabled due to context in which it is running
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.1.0)
+
+2026-07-06T16:58:19.648+05:30  INFO 189914 --- [novanexus-techfest] [           main] c.n.n.NovanexusTechfestApplicationTests  : Starting NovanexusTechfestApplicationTests using Java 17.0.18 with PID 189914 (started by jenkins in /var/lib/jenkins/workspace/NovaNexus-TechFest-CICD/Project/novanexus-techfest)
+2026-07-06T16:58:19.653+05:30  INFO 189914 --- [novanexus-techfest] [           main] c.n.n.NovanexusTechfestApplicationTests  : No active profile set, falling back to 1 default profile: "default"
+2026-07-06T16:58:21.078+05:30  INFO 189914 --- [novanexus-techfest] [           main] o.s.b.w.a.WelcomePageHandlerMapping      : Adding welcome page template: index
+2026-07-06T16:58:21.959+05:30  INFO 189914 --- [novanexus-techfest] [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2026-07-06T16:58:22.039+05:30  INFO 189914 --- [novanexus-techfest] [           main] c.n.n.NovanexusTechfestApplicationTests  : Started NovanexusTechfestApplicationTests in 2.87 seconds (process running for 4.506)
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.687 s -- in com.novanexus.novanexus_techfest.NovanexusTechfestApplicationTests
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  8.943 s
+[INFO] Finished at: 2026-07-06T16:58:23+05:30
+[INFO] ------------------------------------------------------------------------
++ mvn package
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------< com.novanexus:novanexus-techfest >------------------
+[INFO] Building novanexus-techfest 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- resources:3.5.0:resources (default-resources) @ novanexus-techfest ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] Copying 3 resources from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.15.0:compile (default-compile) @ novanexus-techfest ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- resources:3.5.0:testResources (default-testResources) @ novanexus-techfest ---
+[INFO] skip non existing resourceDirectory /var/lib/jenkins/workspace/NovaNexus-TechFest-CICD/Project/novanexus-techfest/src/test/resources
+[INFO] 
+[INFO] --- compiler:3.15.0:testCompile (default-testCompile) @ novanexus-techfest ---
+[INFO] Nothing to compile - all classes are up to date.
+[INFO] 
+[INFO] --- surefire:3.5.6:test (default-test) @ novanexus-techfest ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.novanexus.novanexus_techfest.NovanexusTechfestApplicationTests
+16:58:28.445 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.novanexus.novanexus_techfest.NovanexusTechfestApplicationTests]: NovanexusTechfestApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+16:58:28.623 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.novanexus.NovanexusTechfestApplication for test class com.novanexus.novanexus_techfest.NovanexusTechfestApplicationTests
+16:58:28.810 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.novanexus.novanexus_techfest.NovanexusTechfestApplicationTests]: NovanexusTechfestApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+16:58:28.814 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.novanexus.NovanexusTechfestApplication for test class com.novanexus.novanexus_techfest.NovanexusTechfestApplicationTests
+16:58:28.937 [main] INFO org.springframework.boot.devtools.restart.RestartApplicationListener -- Restart disabled due to context in which it is running
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.1.0)
+
+2026-07-06T16:58:29.560+05:30  INFO 190169 --- [novanexus-techfest] [           main] c.n.n.NovanexusTechfestApplicationTests  : Starting NovanexusTechfestApplicationTests using Java 17.0.18 with PID 190169 (started by jenkins in /var/lib/jenkins/workspace/NovaNexus-TechFest-CICD/Project/novanexus-techfest)
+2026-07-06T16:58:29.566+05:30  INFO 190169 --- [novanexus-techfest] [           main] c.n.n.NovanexusTechfestApplicationTests  : No active profile set, falling back to 1 default profile: "default"
+2026-07-06T16:58:31.342+05:30  INFO 190169 --- [novanexus-techfest] [           main] o.s.b.w.a.WelcomePageHandlerMapping      : Adding welcome page template: index
+2026-07-06T16:58:32.227+05:30  INFO 190169 --- [novanexus-techfest] [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2026-07-06T16:58:32.321+05:30  INFO 190169 --- [novanexus-techfest] [           main] c.n.n.NovanexusTechfestApplicationTests  : Started NovanexusTechfestApplicationTests in 3.404 seconds (process running for 5.416)
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.299 s -- in com.novanexus.novanexus_techfest.NovanexusTechfestApplicationTests
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- jar:3.5.0:jar (default-jar) @ novanexus-techfest ---
+[INFO] Building jar: /var/lib/jenkins/workspace/NovaNexus-TechFest-CICD/Project/novanexus-techfest/target/novanexus-techfest-0.0.1-SNAPSHOT.jar
+[INFO] 
+[INFO] --- spring-boot:4.1.0:repackage (repackage) @ novanexus-techfest ---
+[INFO] Replacing main artifact /var/lib/jenkins/workspace/NovaNexus-TechFest-CICD/Project/novanexus-techfest/target/novanexus-techfest-0.0.1-SNAPSHOT.jar with repackaged archive, adding nested dependencies in BOOT-INF/.
+[INFO] The original artifact has been renamed to /var/lib/jenkins/workspace/NovaNexus-TechFest-CICD/Project/novanexus-techfest/target/novanexus-techfest-0.0.1-SNAPSHOT.jar.original
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  9.744 s
+[INFO] Finished at: 2026-07-06T16:58:34+05:30
+[INFO] ------------------------------------------------------------------------
++ docker build -t novanexus-techfest:v1 .
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 192B done
+#1 DONE 0.1s
+
+#2 [internal] load metadata for docker.io/library/eclipse-temurin:17-jdk
+#2 DONE 3.0s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.1s
+
+#4 [internal] load build context
+#4 transferring context: 23.56MB 0.2s done
+#4 DONE 0.3s
+
+#5 [1/3] FROM docker.io/library/eclipse-temurin:17-jdk@sha256:89dc1a6e09920ea26b2ede6fddfcac1a7508b50159a6d04c918a46132953aab6
+#5 resolve docker.io/library/eclipse-temurin:17-jdk@sha256:89dc1a6e09920ea26b2ede6fddfcac1a7508b50159a6d04c918a46132953aab6 0.1s done
+#5 sha256:d60f06b6cbcfd6ae6c4348f9c722b4074e2f6d5b541c68f22d3d9a4e0e8c9a60 0B / 2.28kB 0.2s
+#5 sha256:d60f06b6cbcfd6ae6c4348f9c722b4074e2f6d5b541c68f22d3d9a4e0e8c9a60 2.28kB / 2.28kB 0.3s
+#5 sha256:abfa1c90bb09383563f68f0a8a5f322a616f44a3699b167b8246ba7209898fee 0B / 157B 0.2s
+#5 sha256:c2bc3fab2c08bf729c3b23b692050e0a9b458161c48a1bc290486007da9573a3 0B / 145.91MB 0.2s
+#5 sha256:079bddacf53d151b0701a06a699eae3b80c0d41784662dca5a10927b87c7b2ac 0B / 24.04MB 0.2s
+#5 sha256:d60f06b6cbcfd6ae6c4348f9c722b4074e2f6d5b541c68f22d3d9a4e0e8c9a60 2.28kB / 2.28kB 0.3s done
+#5 sha256:abfa1c90bb09383563f68f0a8a5f322a616f44a3699b167b8246ba7209898fee 157B / 157B 0.6s done
+#5 sha256:2c1ce1d0a589804cc5314c1325593106b364e9d700502a06de710671c7697220 0B / 393B 0.2s
+#5 sha256:a9be9fd915e97ef977c92b5f9abe226548f0d6a4a013daef6d238708ccde9b61 0B / 41.56MB 0.2s
+#5 sha256:2c1ce1d0a589804cc5314c1325593106b364e9d700502a06de710671c7697220 393B / 393B 1.3s done
+#5 sha256:c2bc3fab2c08bf729c3b23b692050e0a9b458161c48a1bc290486007da9573a3 1.05MB / 145.91MB 5.3s
+#5 sha256:079bddacf53d151b0701a06a699eae3b80c0d41784662dca5a10927b87c7b2ac 0B / 24.04MB 5.3s
+#5 sha256:a9be9fd915e97ef977c92b5f9abe226548f0d6a4a013daef6d238708ccde9b61 1.05MB / 41.56MB 5.3s
+#5 sha256:079bddacf53d151b0701a06a699eae3b80c0d41784662dca5a10927b87c7b2ac 2.10MB / 24.04MB 8.3s
+#5 sha256:c2bc3fab2c08bf729c3b23b692050e0a9b458161c48a1bc290486007da9573a3 2.10MB / 145.91MB 10.4s
+#5 sha256:a9be9fd915e97ef977c92b5f9abe226548f0d6a4a013daef6d238708ccde9b61 1.05MB / 41.56MB 10.4s
+#5 sha256:079bddacf53d151b0701a06a699eae3b80c0d41784662dca5a10927b87c7b2ac 3.15MB / 24.04MB 13.4s
+#5 sha256:c2bc3fab2c08bf729c3b23b692050e0a9b458161c48a1bc290486007da9573a3 3.15MB / 145.91MB 15.5s
+#5 sha256:a9be9fd915e97ef977c92b5f9abe226548f0d6a4a013daef6d238708ccde9b61 2.10MB / 41.56MB 15.5s
+#5 sha256:079bddacf53d151b0701a06a699eae3b80c0d41784662dca5a10927b87c7b2ac 4.19MB / 24.04MB 18.5s
+#5 sha256:c2bc3fab2c08bf729c3b23b692050e0a9b458161c48a1bc290486007da9573a3 4.19MB / 145.91MB 20.6s
+#5 sha256:a9be9fd915e97ef977c92b5f9abe226548f0d6a4a013daef6d238708ccde9b61 3.15MB / 41.56MB 20.6s
+#5 sha256:079bddacf53d151b0701a06a699eae3b80c0d41784662dca5a10927b87c7b2ac 6.29MB / 24.04MB 22.7s
+#5 sha256:c2bc3fab2c08bf729c3b23b692050e0a9b458161c48a1bc290486007da9573a3 5.24MB / 145.91MB 25.7s
+#5 sha256:a9be9fd915e97ef977c92b5f9abe226548f0d6a4a013daef6d238708ccde9b61 4.19MB / 41.56MB 25.7s
+#5 sha256:079bddacf53d151b0701a06a699eae3b80c0d41784662dca5a10927b87c7b2ac 7.34MB / 24.04MB 27.8s
+#5 sha256:c2bc3fab2c08bf729c3b23b692050e0a9b458161c48a1bc290486007da9573a3 6.29MB / 145.91MB 30.8s
+#5 sha256:a9be9fd915e97ef977c92b5f9abe226548f0d6a4a013daef6d238708ccde9b61 5.24MB / 41.56MB 30.8s
+#5 sha256:079bddacf53d151b0701a06a699eae3b80c0d41784662dca5a10927b87c7b2ac 9.44MB / 24.04MB 32.3s
+#5 sha256:c2bc3fab2c08bf729c3b23b692050e0a9b458161c48a1bc290486007da9573a3 7.34MB / 145.91MB 35.9s
+#5 sha256:a9be9fd915e97ef977c92b5f9abe226548f0d6a4a013daef6d238708ccde9b61 6.29MB / 41.56MB 35.9s
+#5 sha256:079bddacf53d151b0701a06a699eae3b80c0d41784662dca5a10927b87c7b2ac 10.49MB / 24.04MB 37.3s
+#5 sha256:079bddacf53d151b0701a06a699eae3b80c0d41784662dca5a10927b87c7b2ac 12.58MB / 24.04MB 40.1s
+#5 sha256:c2bc3fab2c08bf729c3b23b692050e0a9b458161c48a1bc290486007da9573a3 8.39MB / 145.91MB 41.0s
+#5 sha256:a9be9fd915e97ef977c92b5f9abe226548f0d6a4a013daef6d238708ccde9b61 6.29MB / 41.56MB 41.0s
+#5 sha256:079bddacf53d151b0701a06a699eae3b80c0d41784662dca5a10927b87c7b2ac 14.68MB / 24.04MB 44.4s
+#5 sha256:c2bc3fab2c08bf729c3b23b692050e0a9b458161c48a1bc290486007da9573a3 9.44MB / 145.91MB 46.1s
+#5 sha256:a9be9fd915e97ef977c92b5f9abe226548f0d6a4a013daef6d238708ccde9b61 7.34MB / 41.56MB 46.1s
+#5 sha256:079bddacf53d151b0701a06a699eae3b80c0d41784662dca5a10927b87c7b2ac 16.78MB / 24.04MB 49.4s
+#5 sha256:c2bc3fab2c08bf729c3b23b692050e0a9b458161c48a1bc290486007da9573a3 9.44MB / 145.91MB 51.2s
+#5 sha256:a9be9fd915e97ef977c92b5f9abe226548f0d6a4a013daef6d238708ccde9b61 8.39MB / 41.56MB 51.2s
+#5 sha256:079bddacf53d151b0701a06a699eae3b80c0d41784662dca5a10927b87c7b2ac 18.87MB / 24.04MB 54.1s
+#5 sha256:c2bc3fab2c08bf729c3b23b692050e0a9b458161c48a1bc290486007da9573a3 10.49MB / 145.91MB 56.3s
+#5 sha256:a9be9fd915e97ef977c92b5f9abe226548f0d6a4a013daef6d238708ccde9b61 9.44MB / 41.56MB 56.3s
+#5 sha256:079bddacf53d151b0701a06a699eae3b80c0d41784662dca5a10927b87c7b2ac 20.97MB / 24.04MB 58.4s
+#5 sha256:c2bc3fab2c08bf729c3b23b692050e0a9b458161c48a1bc290486007da9573a3 10.49MB / 145.91MB 61.4s
+#5 sha256:a9be9fd915e97ef977c92b5f9abe226548f0d6a4a013daef6d238708ccde9b61 10.49MB / 41.56MB 61.4s
+#5 sha256:079bddacf53d151b0701a06a699eae3b80c0d41784662dca5a10927b87c7b2ac 23.07MB / 24.04MB 62.6s
+#5 sha256:079bddacf53d151b0701a06a699eae3b80c0d41784662dca5a10927b87c7b2ac 24.04MB / 24.04MB 64.8s done
+#5 sha256:c2bc3fab2c08bf729c3b23b692050e0a9b458161c48a1bc290486007da9573a3 11.53MB / 145.91MB 66.5s
+#5 sha256:a9be9fd915e97ef977c92b5f9abe226548f0d6a4a013daef6d238708ccde9b61 11.53MB / 41.56MB 66.5s
+#5 sha256:c2bc3fab2c08bf729c3b23b692050e0a9b458161c48a1bc290486007da9573a3 14.68MB / 145.91MB 71.6s
+#5 sha256:a9be9fd915e97ef977c92b5f9abe226548f0d6a4a013daef6d238708ccde9b61 12.58MB / 41.56MB 71.6s
+#5 sha256:c2bc3fab2c08bf729c3b23b692050e0a9b458161c48a1bc290486007da9573a3 16.78MB / 145.91MB 76.7s
+#5 sha256:a9be9fd915e97ef977c92b5f9abe226548f0d6a4a013daef6d238708ccde9b61 13.63MB / 41.56MB 76.7s
+#5 sha256:c2bc3fab2c08bf729c3b23b692050e0a9b458161c48a1bc290486007da9573a3 19.92MB / 145.91MB 81.8s
+#5 sha256:a9be9fd915e97ef977c92b5f9abe226548f0d6a4a013daef6d238708ccde9b61 13.63MB / 41.56MB 81.8s
+#5 sha256:c2bc3fab2c08bf729c3b23b692050e0a9b458161c48a1bc290486007da9573a3 23.07MB / 145.91MB 86.9s
+#5 sha256:a9be9fd915e97ef977c92b5f9abe226548f0d6a4a013daef6d238708ccde9b61 14.68MB / 41.56MB 86.9s
+#5 sha256:c2bc3fab2c08bf729c3b23b692050e0a9b458161c48a1bc290486007da9573a3 26.21MB / 145.91MB 92.0s
+#5 sha256:a9be9fd915e97ef977c92b5f9abe226548f0d6a4a013daef6d238708ccde9b61 15.73MB / 41.56MB 92.0s
+#5 sha256:c2bc3fab2c08bf729c3b23b692050e0a9b458161c48a1bc290486007da9573a3 29.36MB / 145.91MB 97.1s
+#5 sha256:a9be9fd915e97ef977c92b5f9abe226548f0d6a4a013daef6d238708ccde9b61 16.78MB / 41.56MB 97.1s
+#5 sha256:c2bc3fab2c08bf729c3b23b692050e0a9b458161c48a1bc290486007da9573a3 32.51MB / 145.91MB 102.2s
+#5 sha256:a9be9fd915e97ef977c92b5f9abe226548f0d6a4a013daef6d238708ccde9b61 16.78MB / 41.56MB 102.2s
+#5 sha256:c2bc3fab2c08bf729c3b23b692050e0a9b458161c48a1bc290486007da9573a3 35.65MB / 145.91MB 107.3s
+#5 sha256:a9be9fd915e97ef977c92b5f9abe226548f0d6a4a013daef6d238708ccde9b61 17.83MB / 41.56MB 107.3s
+#5 sha256:c2bc3fab2c08bf729c3b23b692050e0a9b458161c48a1bc290486007da9573a3 37.75MB / 145.91MB 112.4s
+#5 sha256:a9be9fd915e97ef977c92b5f9abe226548f0d6a4a013daef6d238708ccde9b61 18.87MB / 41.56MB 112.4s
+#5 sha256:c2bc3fab2c08bf729c3b23b692050e0a9b458161c48a1bc290486007da9573a3 38.80MB / 145.91MB 117.5s
+#5 sha256:a9be9fd915e97ef977c92b5f9abe226548f0d6a4a013daef6d238708ccde9b61 19.92MB / 41.56MB 117.5s
+#5 sha256:c2bc3fab2c08bf729c3b23b692050e0a9b458161c48a1bc290486007da9573a3 38.80MB / 145.91MB 122.6s
+#5 sha256:a9be9fd915e97ef977c92b5f9abe226548f0d6a4a013daef6d238708ccde9b61 20.97MB / 41.56MB 122.6s
+#5 sha256:c2bc3fab2c08bf729c3b23b692050e0a9b458161c48a1bc290486007da9573a3 39.85MB / 145.91MB 127.7s
+#5 sha256:a9be9fd915e97ef977c92b5f9abe226548f0d6a4a013daef6d238708ccde9b61 22.02MB / 41.56MB 127.7s
+#5 sha256:a9be9fd915e97ef977c92b5f9abe226548f0d6a4a013daef6d238708ccde9b61 24.12MB / 41.56MB 130.7s
+#5 sha256:c2bc3fab2c08bf729c3b23b692050e0a9b458161c48a1bc290486007da9573a3 39.85MB / 145.91MB 132.8s
+#5 sha256:a9be9fd915e97ef977c92b5f9abe226548f0d6a4a013daef6d238708ccde9b61 25.17MB / 41.56MB 135.8s
+#5 sha256:c2bc3fab2c08bf729c3b23b692050e0a9b458161c48a1bc290486007da9573a3 41.94MB / 145.91MB 137.9s
+#5 sha256:a9be9fd915e97ef977c92b5f9abe226548f0d6a4a013daef6d238708ccde9b61 27.26MB / 41.56MB 138.9s
+#5 sha256:c2bc3fab2c08bf729c3b23b692050e0a9b458161c48a1bc290486007da9573a3 42.99MB / 145.91MB 143.0s
+#5 sha256:a9be9fd915e97ef977c92b5f9abe226548f0d6a4a013daef6d238708ccde9b61 28.31MB / 41.56MB 144.0s
+#5 sha256:c2bc3fab2c08bf729c3b23b692050e0a9b458161c48a1bc290486007da9573a3 42.99MB / 145.91MB 148.1s
+#5 sha256:a9be9fd915e97ef977c92b5f9abe226548f0d6a4a013daef6d238708ccde9b61 30.41MB / 41.56MB 147.8s
+#5 sha256:c2bc3fab2c08bf729c3b23b692050e0a9b458161c48a1bc290486007da9573a3 44.04MB / 145.91MB 153.2s
+#5 sha256:a9be9fd915e97ef977c92b5f9abe226548f0d6a4a013daef6d238708ccde9b61 31.46MB / 41.56MB 152.9s
+#5 sha256:c2bc3fab2c08bf729c3b23b692050e0a9b458161c48a1bc290486007da9573a3 46.14MB / 145.91MB 158.3s
+#5 sha256:a9be9fd915e97ef977c92b5f9abe226548f0d6a4a013daef6d238708ccde9b61 33.55MB / 41.56MB 158.0s
+#5 sha256:c2bc3fab2c08bf729c3b23b692050e0a9b458161c48a1bc290486007da9573a3 48.23MB / 145.91MB 163.4s
+#5 sha256:a9be9fd915e97ef977c92b5f9abe226548f0d6a4a013daef6d238708ccde9b61 34.60MB / 41.56MB 163.1s
+#5 sha256:a9be9fd915e97ef977c92b5f9abe226548f0d6a4a013daef6d238708ccde9b61 36.70MB / 41.56MB 166.2s
+#5 sha256:c2bc3fab2c08bf729c3b23b692050e0a9b458161c48a1bc290486007da9573a3 50.33MB / 145.91MB 168.5s
+#5 sha256:a9be9fd915e97ef977c92b5f9abe226548f0d6a4a013daef6d238708ccde9b61 37.75MB / 41.56MB 171.3s
+#5 sha256:c2bc3fab2c08bf729c3b23b692050e0a9b458161c48a1bc290486007da9573a3 52.43MB / 145.91MB 173.6s
+#5 sha256:a9be9fd915e97ef977c92b5f9abe226548f0d6a4a013daef6d238708ccde9b61 39.85MB / 41.56MB 175.7s
+#5 sha256:c2bc3fab2c08bf729c3b23b692050e0a9b458161c48a1bc290486007da9573a3 55.57MB / 145.91MB 178.7s
+#5 sha256:a9be9fd915e97ef977c92b5f9abe226548f0d6a4a013daef6d238708ccde9b61 40.89MB / 41.56MB 180.8s
+#5 sha256:a9be9fd915e97ef977c92b5f9abe226548f0d6a4a013daef6d238708ccde9b61 41.56MB / 41.56MB 182.3s done
+#5 extracting sha256:a9be9fd915e97ef977c92b5f9abe226548f0d6a4a013daef6d238708ccde9b61
+#5 sha256:c2bc3fab2c08bf729c3b23b692050e0a9b458161c48a1bc290486007da9573a3 57.67MB / 145.91MB 183.8s
+#5 extracting sha256:a9be9fd915e97ef977c92b5f9abe226548f0d6a4a013daef6d238708ccde9b61 2.6s done
+#5 extracting sha256:2c1ce1d0a589804cc5314c1325593106b364e9d700502a06de710671c7697220 0.0s done
+#5 extracting sha256:079bddacf53d151b0701a06a699eae3b80c0d41784662dca5a10927b87c7b2ac
+#5 extracting sha256:079bddacf53d151b0701a06a699eae3b80c0d41784662dca5a10927b87c7b2ac 1.4s done
+#5 sha256:c2bc3fab2c08bf729c3b23b692050e0a9b458161c48a1bc290486007da9573a3 61.87MB / 145.91MB 188.9s
+#5 sha256:c2bc3fab2c08bf729c3b23b692050e0a9b458161c48a1bc290486007da9573a3 66.06MB / 145.91MB 194.0s
+#5 sha256:c2bc3fab2c08bf729c3b23b692050e0a9b458161c48a1bc290486007da9573a3 70.25MB / 145.91MB 199.1s
+#5 sha256:c2bc3fab2c08bf729c3b23b692050e0a9b458161c48a1bc290486007da9573a3 74.45MB / 145.91MB 204.2s
+#5 sha256:c2bc3fab2c08bf729c3b23b692050e0a9b458161c48a1bc290486007da9573a3 78.64MB / 145.91MB 209.3s
+#5 sha256:c2bc3fab2c08bf729c3b23b692050e0a9b458161c48a1bc290486007da9573a3 81.79MB / 145.91MB 214.4s
+#5 sha256:c2bc3fab2c08bf729c3b23b692050e0a9b458161c48a1bc290486007da9573a3 85.98MB / 145.91MB 219.5s
+#5 sha256:c2bc3fab2c08bf729c3b23b692050e0a9b458161c48a1bc290486007da9573a3 90.18MB / 145.91MB 224.6s
+#5 sha256:c2bc3fab2c08bf729c3b23b692050e0a9b458161c48a1bc290486007da9573a3 94.37MB / 145.91MB 229.7s
+#5 sha256:c2bc3fab2c08bf729c3b23b692050e0a9b458161c48a1bc290486007da9573a3 98.57MB / 145.91MB 234.8s
+#5 sha256:c2bc3fab2c08bf729c3b23b692050e0a9b458161c48a1bc290486007da9573a3 101.71MB / 145.91MB 239.9s
+#5 sha256:c2bc3fab2c08bf729c3b23b692050e0a9b458161c48a1bc290486007da9573a3 105.91MB / 145.91MB 245.0s
+#5 sha256:c2bc3fab2c08bf729c3b23b692050e0a9b458161c48a1bc290486007da9573a3 109.05MB / 145.91MB 250.1s
+#5 sha256:c2bc3fab2c08bf729c3b23b692050e0a9b458161c48a1bc290486007da9573a3 113.25MB / 145.91MB 255.2s
+#5 sha256:c2bc3fab2c08bf729c3b23b692050e0a9b458161c48a1bc290486007da9573a3 116.39MB / 145.91MB 260.3s
+#5 sha256:c2bc3fab2c08bf729c3b23b692050e0a9b458161c48a1bc290486007da9573a3 120.59MB / 145.91MB 265.4s
+#5 sha256:c2bc3fab2c08bf729c3b23b692050e0a9b458161c48a1bc290486007da9573a3 123.73MB / 145.91MB 270.5s
+#5 sha256:c2bc3fab2c08bf729c3b23b692050e0a9b458161c48a1bc290486007da9573a3 127.93MB / 145.91MB 275.6s
+#5 sha256:c2bc3fab2c08bf729c3b23b692050e0a9b458161c48a1bc290486007da9573a3 132.12MB / 145.91MB 280.7s
+#5 sha256:c2bc3fab2c08bf729c3b23b692050e0a9b458161c48a1bc290486007da9573a3 135.27MB / 145.91MB 285.8s
+#5 sha256:c2bc3fab2c08bf729c3b23b692050e0a9b458161c48a1bc290486007da9573a3 139.46MB / 145.91MB 290.9s
+#5 sha256:c2bc3fab2c08bf729c3b23b692050e0a9b458161c48a1bc290486007da9573a3 143.65MB / 145.91MB 296.0s
+#5 sha256:c2bc3fab2c08bf729c3b23b692050e0a9b458161c48a1bc290486007da9573a3 145.91MB / 145.91MB 298.9s done
+#5 extracting sha256:c2bc3fab2c08bf729c3b23b692050e0a9b458161c48a1bc290486007da9573a3
+#5 extracting sha256:c2bc3fab2c08bf729c3b23b692050e0a9b458161c48a1bc290486007da9573a3 4.1s done
+#5 DONE 303.5s
+
+#5 [1/3] FROM docker.io/library/eclipse-temurin:17-jdk@sha256:89dc1a6e09920ea26b2ede6fddfcac1a7508b50159a6d04c918a46132953aab6
+#5 extracting sha256:abfa1c90bb09383563f68f0a8a5f322a616f44a3699b167b8246ba7209898fee 0.0s done
+#5 extracting sha256:d60f06b6cbcfd6ae6c4348f9c722b4074e2f6d5b541c68f22d3d9a4e0e8c9a60 0.0s done
+#5 DONE 303.5s
+
+#6 [2/3] WORKDIR /app
+#6 DONE 1.4s
+
+#7 [3/3] COPY target/novanexus-techfest-0.0.1-SNAPSHOT.jar app.jar
+#7 DONE 0.3s
+
+#8 exporting to image
+#8 exporting layers
+#8 exporting layers 1.8s done
+#8 exporting manifest sha256:5625a9138119552aa739add2d602d0ac33b91ab968050ecaea1098c3af6bcbef 0.0s done
+#8 exporting config sha256:51a1dd85609f8bf6e065da8fd51b71213fe21b44e4946efdbfdab2f6e359c217 0.0s done
+#8 exporting attestation manifest sha256:bd0b9946baa62ebf37eb6e98601c63edfb9efe39f09629a97567e4ee681b1b0b
+#8 exporting attestation manifest sha256:bd0b9946baa62ebf37eb6e98601c63edfb9efe39f09629a97567e4ee681b1b0b 0.1s done
+#8 exporting manifest list sha256:e6fbbb8cd9424759d27e73aef7c00089686e828419f37e778ab4c62a43068316 0.0s done
+#8 naming to docker.io/library/novanexus-techfest:v1
+#8 naming to docker.io/library/novanexus-techfest:v1 done
+#8 unpacking to docker.io/library/novanexus-techfest:v1
+#8 unpacking to docker.io/library/novanexus-techfest:v1 0.5s done
+#8 DONE 2.5s
++ docker images
+IMAGE                   ID             DISK USAGE   CONTENT SIZE   EXTRA
+novanexus-techfest:v1   e6fbbb8cd942        726MB          233MB        
+Finished: SUCCESS
