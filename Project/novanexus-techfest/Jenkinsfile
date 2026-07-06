@@ -8,10 +8,12 @@ pipeline {
     }
 
     environment {
-    PROJECT_DIR = "Project/novanexus-techfest"
-    IMAGE_NAME = "novanexus-techfest"
-    IMAGE_TAG = "v1"
-}
+        PROJECT_DIR = "Project/novanexus-techfest"
+        IMAGE_NAME = "novanexus-techfest"
+        IMAGE_TAG = "v1"
+        JAVA_HOME = "/usr/lib/jvm/java-17-openjdk"
+        PATH = "${JAVA_HOME}/bin:${env.PATH}"
+    }
 
     stages {
 
@@ -35,75 +37,60 @@ pipeline {
                 echo "Verifying Docker..."
                 sh 'docker --version'
 
-                echo "Verifying Kubernetes..."
+                echo "Verifying Kubernetes Client..."
                 sh 'kubectl version --client'
             }
         }
 
         stage('Clean Project') {
-    steps {
-        dir(env.PROJECT_DIR) {
-            sh 'mvn clean'
+            steps {
+                dir(env.PROJECT_DIR) {
+                    echo "Cleaning project..."
+                    sh 'mvn clean'
+                }
+            }
         }
-    }
-}
 
         stage('Compile Project') {
-    steps {
-        dir(env.PROJECT_DIR) {
-            sh 'mvn compile'
+            steps {
+                dir(env.PROJECT_DIR) {
+                    echo "Compiling project..."
+                    sh 'mvn compile'
+                }
+            }
         }
-    }
-}
 
         stage('Run Unit Tests') {
-    steps {
-        dir(env.PROJECT_DIR) {
-            sh 'mvn test'
+            steps {
+                dir(env.PROJECT_DIR) {
+                    echo "Running unit tests..."
+                    sh 'mvn test'
+                }
+            }
         }
-    }
-}
 
         stage('Package Application') {
-    steps {
-        dir(env.PROJECT_DIR) {
-            sh 'mvn package'
+            steps {
+                dir(env.PROJECT_DIR) {
+                    echo "Packaging Spring Boot application..."
+                    sh 'mvn package'
+                }
+            }
         }
-    }
-}
 
         stage('Build Docker Image') {
-    steps {
-        dir(env.PROJECT_DIR) {
-            sh 'docker build -t ${IMAGE_NAME}:${IMAGE_TAG} .'
+            steps {
+                dir(env.PROJECT_DIR) {
+                    echo "Building Docker image..."
+                    sh 'docker build -t ${IMAGE_NAME}:${IMAGE_TAG} .'
+                }
+            }
         }
-    }
-}
 
         stage('List Docker Images') {
             steps {
                 echo "Available Docker Images"
                 sh 'docker images'
-            }
-        }
-
-        stage('Deploy to Kubernetes') {
-    steps {
-        dir(env.PROJECT_DIR) {
-            sh 'kubectl apply -f k8s/deployment.yaml'
-            sh 'kubectl apply -f k8s/service.yaml'
-        }
-    }
-}
-
-        stage('Verify Deployment') {
-            steps {
-                echo "Checking Deployment..."
-
-                sh 'kubectl rollout status deployment/novanexus-techfest'
-                sh 'kubectl get deployments'
-                sh 'kubectl get pods'
-                sh 'kubectl get svc'
             }
         }
 
@@ -118,7 +105,7 @@ pipeline {
         success {
             echo "======================================="
             echo "BUILD SUCCESSFUL"
-            echo "NovaNexus TechFest deployed successfully."
+            echo "Docker Image Created Successfully"
             echo "======================================="
         }
 
@@ -128,5 +115,7 @@ pipeline {
             echo "Check Jenkins Console Output"
             echo "======================================="
         }
+
     }
+
 }
